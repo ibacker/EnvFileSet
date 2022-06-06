@@ -12,6 +12,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class YamlTool {
+    public static final String NAME = "name";
+    public static final String VALUE = "value";
+    private static final String envPath = "spec.template.spec.containers.env";
     Map<String, Object> properties = new HashMap<>();
 
 
@@ -26,8 +29,8 @@ public class YamlTool {
     public Map<String, String> getEnvList() {
         Map<String, String> resultList = new HashMap<>();
         if( !properties.isEmpty()) {
-            ArrayList<Map<String, String>> envList = getValueByKey("spec.containers.env", new ArrayList<Map<String, String>>());
-            envList.stream().forEach(e -> resultList.put(e.get("name"), e.get("value")));
+            ArrayList<Map<String, String>> envList = getValueByKey(envPath, new ArrayList<Map<String, String>>());
+            envList.stream().forEach(e -> resultList.put(e.get(NAME), e.get(VALUE)));
         }
         return resultList;
     }
