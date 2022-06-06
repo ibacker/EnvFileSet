@@ -14,7 +14,7 @@ import java.util.Map;
 public class YamlTool {
     public static final String NAME = "name";
     public static final String VALUE = "value";
-    private static final String envPath = "spec.template.spec.containers.env";
+    private static final String envPath = "spec.template.spec.containers[0].env";
     Map<String, Object> properties = new HashMap<>();
 
 
